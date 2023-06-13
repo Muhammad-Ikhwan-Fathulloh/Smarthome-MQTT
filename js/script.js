@@ -5,6 +5,7 @@ const client = mqtt.connect('wss://public:public@public.cloud.shiftr.io', {
 client.on('connect', function() {
     console.log('connected!');
     client.subscribe('koalawan/iot');
+   
 });
 
 client.on('message', function(topic, message) {
@@ -16,3 +17,4 @@ document.querySelector('button').addEventListener('click', function() {
     count++
     client.publish('koalawan/iot', 'hello '+count);
 });
+
