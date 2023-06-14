@@ -78,3 +78,9 @@ for (let i = 1; i <= jumlah_kontak; i++) {
     });
 }
 
+let button_send = document.getElementById(`send`);
+let message = document.getElementById(`message`);
+button_send.addEventListener('click', function() {
+    client.publish(`koalawan/iot/message`, message.value)
+});
+
