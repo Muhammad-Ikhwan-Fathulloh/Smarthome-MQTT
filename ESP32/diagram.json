@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "author": "Muhammad Ikhwan Fathulloh",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -44.67, "left": -25.33, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -52.62,
+      "left": 97.27,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -51.74,
+      "left": 129.53,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -30.76,
+      "left": 248.6,
+      "attrs": { "temperature": "72.8", "humidity": "89.5" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": -52.29,
+      "left": 165.8,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led4",
+      "top": -53.15,
+      "left": 204.06,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 130.45,
+      "left": 106.05,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-hc-sr04", "id": "ultrasonic1", "top": -53.14, "left": -221.5, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.1", "led1:C", "black", [ "h0" ] ],
+    [ "esp:GND.1", "led2:C", "black", [ "h0" ] ],
+    [ "led1:A", "esp:D4", "green", [ "v0" ] ],
+    [ "led2:A", "esp:D2", "green", [ "v0" ] ],
+    [ "esp:3V3", "dht1:VCC", "red", [ "v-0.37", "h167.56" ] ],
+    [ "dht1:SDA", "esp:D15", "green", [ "v0" ] ],
+    [ "esp:GND.1", "dht1:GND", "black", [ "h0" ] ],
+    [ "esp:GND.1", "led3:C", "black", [ "h0" ] ],
+    [ "esp:GND.1", "led4:C", "black", [ "h0" ] ],
+    [ "led3:A", "esp:D5", "green", [ "v0" ] ],
+    [ "led4:A", "esp:D18", "green", [ "v0" ] ],
+    [ "lcd1:GND", "esp:GND.2", "black", [ "h-170.17", "v-58.12" ] ],
+    [ "esp:VIN", "lcd1:VCC", "red", [ "h-27.8", "v98.03" ] ],
+    [ "esp:D21", "lcd1:SDA", "green", [ "h20.71", "v-66.43", "h-129.1", "v268.67" ] ],
+    [ "esp:D22", "lcd1:SCL", "green", [ "h12.85", "v-43.84", "h-129.1", "v243.46", "h150.33" ] ],
+    [ "esp:VIN", "ultrasonic1:VCC", "red", [ "h0" ] ],
+    [ "esp:GND.2", "ultrasonic1:GND", "black", [ "h0" ] ],
+    [ "esp:D13", "ultrasonic1:TRIG", "green", [ "h0" ] ],
+    [ "esp:D12", "ultrasonic1:ECHO", "green", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
